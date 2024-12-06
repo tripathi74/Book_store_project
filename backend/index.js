@@ -28,6 +28,11 @@ app.get('/', (request, response) => {      // used to get HTTP method ,  '/' is 
 
 app.use('/books', booksRoute);            // mounts a router (booksRoute) to handle requests at the /books path.
 
+app.get('/check', (req, res)=> {
+  res.send("I am listening")
+})
+
+
 mongoose
   .connect(mongoDBURL)                   // connect to the database
   .then(() => {
