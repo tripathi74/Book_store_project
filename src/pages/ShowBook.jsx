@@ -12,7 +12,7 @@ const ShowBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://book-store-opio.onrender.com/books/${id}`)
+      .get(process.env.BASE_URL+`/books/${id}`)
       .then((response) => {
         setBook(response.data);
         setLoading(false);
