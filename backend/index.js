@@ -1,8 +1,10 @@
 import express from 'express';
-import { PORT, mongoDBURL } from './config.js';
+//import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import booksRoute from './routes/booksRoute.js';
 import cors from 'cors';
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 
@@ -32,9 +34,9 @@ app.get('/check', (req, res)=> {
   res.send("I am listening")
 })
 
-
+const PORT = process.env.PORT || 5555;
 mongoose
-  .connect(mongoDBURL)                   // connect to the database
+  .connect(process.env.mongoDBURL)                   // connect to the database
   .then(() => {
     console.log('App connected to database');
     app.listen(PORT, () => {     // app.listen(port, callback) :Starts the server and listens for connections on the specified port,

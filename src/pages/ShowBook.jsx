@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
+// import dotenv from "dotenv";
+// dotenv.config();
 
 const ShowBook = () => {
   const [book, setBook] = useState({});
@@ -12,7 +14,7 @@ const ShowBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(process.env.BASE_URL+`/books/${id}`)
+      .get(`http://localhost:5555/books/${id}`)
       .then((response) => {
         setBook(response.data);
         setLoading(false);
