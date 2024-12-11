@@ -39,7 +39,7 @@ mongoose
   .connect(process.env.mongoDBURL)                   // connect to the database
   .then(() => {
     console.log('App connected to database');
-    app.listen(PORT, () => {     // app.listen(port, callback) :Starts the server and listens for connections on the specified port,
+    app.listen(PORT, '0.0.0.0' () => {     // app.listen(port, callback) :Starts the server and listens for connections on the specified port,
                                  //  allowing the app to listen for incoming HTTP requests
       console.log(`App is listening to port: ${PORT}`);    //console.log() is a function used to print output to the console.
     });
